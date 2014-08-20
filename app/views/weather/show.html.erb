@@ -1,12 +1,12 @@
 <%= form_tag url: root_path, method: 'get' do %>
-  <%= label_tag "Please enter a city" %>
-  <%= text_field_tag "query", params[:query] %>
+  <%= label_tag 'Please enter a city' %>
+  <%= text_field_tag 'query', params[:query] %>
   <%= submit_tag %>
 <% end %>
 
 <% if @data %>
-  <%= @data %>
+  Current temperature is: <%= @data %> C
 <% else %>
-  <%= puts "Please enter a city" %>
+   "Please enter a city"
 <% end %>
 

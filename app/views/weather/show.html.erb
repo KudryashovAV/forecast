@@ -1,0 +1,12 @@
+<%= form_tag url: root_path, method: 'get' do %>
+  <%= label_tag "Please enter a city" %>
+  <%= text_field_tag "query", params[:query] %>
+  <%= submit_tag %>
+<% end %>
+
+<% if @data %>
+  <% +15 %>
+<% else %>
+  <% "Please enter a city" %>
+<% end %>
+

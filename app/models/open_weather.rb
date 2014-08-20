@@ -1,4 +1,4 @@
-class OpenWeather < ActiveRecord::Base
+class OpenWeather
   include HTTParty
   base_uri "http://api.openweathermap.org/data/2.5/"
   format :json

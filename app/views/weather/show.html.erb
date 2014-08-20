@@ -5,7 +5,7 @@
 <% end %>
 
 <% if @data %>
-  Current temperature is: <%= @data %> C
+  Current temperature is: <%= @data["main"]["temp"] - 273.15 %> &degC
 <% else %>
    "Please enter a city"
 <% end %>

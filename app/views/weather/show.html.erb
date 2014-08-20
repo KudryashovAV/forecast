@@ -4,9 +4,7 @@
   <%= submit_tag %>
 <% end %>
 
-<% if @data %>
-  Current temperature is: <%= @data["main"]["temp"] - 273.15 %> &degC
-<% else %>
-   "Please enter a city"
+<% if @data %>  
+  Current temperature is: <%= @data["main"]["temp"] - 273.15 %>&degC, <%= @data["sys"]["country"] %> 
 <% end %>
 

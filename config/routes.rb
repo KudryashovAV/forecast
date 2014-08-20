@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root to: "weather#show"
-  resource :open_weather
+  post "/", to: "weather#show"
 end

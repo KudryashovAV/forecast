@@ -7,7 +7,7 @@ class OpenWeather
     @options = { query: {q: query} }
   end
 
-  def current(query)
+  def current
     self.class.get('/weather', @options)
   end
 end

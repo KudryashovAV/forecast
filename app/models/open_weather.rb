@@ -3,8 +3,8 @@ class OpenWeather
   base_uri "http://api.openweathermap.org/data/2.5/"
   format :json
 
-  def initialize(query)
-    @options = { query: {q: query} }
+  def initialize(city)
+    @options = { query: {q: city} }
   end
 
   def current

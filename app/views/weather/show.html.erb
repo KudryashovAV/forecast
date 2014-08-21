@@ -1,38 +1,30 @@
 <%= form_tag root_path, method: 'get' do %>
 	<%= label_tag 'Please enter a city' %>
-	<%= text_field_tag 'query', params[:query] %>
+	<%= text_field_tag 'city', params[:city] %>
 	<%= submit_tag %>
 <% end %>
+
 
 <% if @data == nil %>  
 	City not found
 <% else %>
-  <table>
+<p> This city is located in the <%= @data["sys"]["country"] %> </p>
+<p> Current temperature <%= celvin_round(@data["main"]["temp"]) %>&degC</p>
+<p class="text-center">Weather forecast for 7 days</p>
+  <table  BORDER=2 ALIGN=CENTER CELLPADDING=5 WIDTH="50%">
   <thead>
     <tr>
-      <th>Country</th>
-      <th>Current temperature</th>
-      <th>Forecast for tomorrow:</th>
-      <th>Forecast after 1 day:</th>
-      <th>Forecast after 2 days:</th>
-      <th>Forecast after 3 days:</th>
-      <th>Forecast after 4 days:</th>
-      <th>Forecast after 5 days:</th>
-      <th>Forecast after 6 days:</th>
-    </tr>
+      <th> Day </th> 
+      <th> Temperature </th>     
+    </tr>    
   </thead>
   <tbody>
-    <tr>
-      <td><%= @data["sys"]["country"] %></td>
-      <td><%= (@data["main"]["temp"] - 273.15).round 0 %>&degC</td>
-      <td><%= (@daily["list"][0]["temp"]["day"]- 273.15).round %>&degC </td>
-      <td><%= (@daily["list"][1]["temp"]["day"]- 273.15).round %>&degC </td>
-      <td><%= (@daily["list"][2]["temp"]["day"]- 273.15).round %>&degC </td>
-      <td><%= (@daily["list"][3]["temp"]["day"]- 273.15).round %>&degC </td>
-      <td><%= (@daily["list"][4]["temp"]["day"]- 273.15).round %>&degC </td>
-      <td><%= (@daily["list"][5]["temp"]["day"]- 273.15).round %>&degC </td>
-      <td><%= (@daily["list"][6]["temp"]["day"]- 273.15).round %>&degC </td>
-    </tr>
+    <% @daily["list"].each do |x| print x %>
+      <tr>
+        <td> <%= x["dt"] %> </td>
+        <td> <%= celvin_round(x["temp"]["day"]) %>&degC </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
   

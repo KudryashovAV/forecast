@@ -1,9 +1,9 @@
 class WeatherController < ApplicationController
   def show
-    if params[:query]
-      @data = OpenWeather.new(params[:query]).current
-      
-      @daily = OpenWeather.new(params[:query]).forecast
+    if params[:city]
+      @data = OpenWeather.new(params[:city]).current
+
+      @daily = OpenWeather.new(params[:city]).forecast
 
       if @data['cod'] == '404'
         @data = nil

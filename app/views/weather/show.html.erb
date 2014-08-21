@@ -7,6 +7,6 @@
 <% if @data == nil %>  
 	City not found
 <% else %>
-	Current temperature is: <%= @data["main"]["temp"] - 273.15 %>&degC, <%= @data["sys"]["country"] %> 
+	Current temperature is: <%= (@data["main"]["temp"] - 273.15).round 0 %>&degC, <%= @data["sys"]["country"] %> 
 <% end %>
 

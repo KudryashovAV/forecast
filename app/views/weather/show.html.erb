@@ -7,6 +7,14 @@
 <% if @data == nil %>  
 	City not found
 <% else %>
-	Current temperature is: <%= (@data["main"]["temp"] - 273.15).round 0 %>&degC, <%= @data["sys"]["country"] %> 
+  <p> This city is located in the <%= @data["sys"]["country"] %> </p>
+	<p> Current temperature is: <%= (@data["main"]["temp"] - 273.15).round %>&degC </p>
+  <p> Forecast for tomorrow: <%= (@daily["list"][0]["temp"]["day"]- 273.15).round %>&degC </p>
+  <p> Forecast after 1 day:  <%= (@daily["list"][1]["temp"]["day"]- 273.15).round %>&degC </p>
+  <p> Forecast after 2 days: <%= (@daily["list"][2]["temp"]["day"]- 273.15).round %>&degC </p>
+  <p> Forecast after 3 days: <%= (@daily["list"][3]["temp"]["day"]- 273.15).round %>&degC </p>
+  <p> Forecast after 4 days: <%= (@daily["list"][4]["temp"]["day"]- 273.15).round %>&degC </p>
+  <p> Forecast after 5 days: <%= (@daily["list"][5]["temp"]["day"]- 273.15).round %>&degC </p>
+  <p> Forecast after 6 days: <%= (@daily["list"][6]["temp"]["day"]- 273.15).round %>&degC </p>
 <% end %>
 

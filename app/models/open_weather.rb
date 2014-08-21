@@ -10,4 +10,8 @@ class OpenWeather
   def current
     self.class.get('/weather', @options)
   end
+
+  def forecast
+    self.class.get('/forecast/daily', @options)
+  end
 end
